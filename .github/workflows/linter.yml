@@ -21,12 +21,8 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LOG_FILE: eslint_report.json
           
-      - name: Annotate Code Linting Results
-        uses: ataylorme/eslint-annotate-action@v2
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          report-json: "eslint_report.json"
       # OPTIONAL: save a copy of the usage report for download or use in another job
       - name: Upload ESLint report
         uses: actions/upload-artifact@v3
