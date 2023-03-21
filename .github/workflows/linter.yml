@@ -21,3 +21,12 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LOG_FILE: eslint_report.json
+          
+      # OPTIONAL: save a copy of the usage report for download or use in another job
+      - name: Upload ESLint report
+        uses: actions/upload-artifact@v3
+        with:
+          name: eslint_report.json
+          path: eslint_report.json
+          retention-days: 5
